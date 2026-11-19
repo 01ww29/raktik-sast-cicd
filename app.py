@@ -1,10 +1,8 @@
-import os
-
-# Sengaja menaruh password di dalam kode (celah keamanan)
-API_SECRET = "sk_live_1234567890rahasia"
-
 def cek_host(domain):
-    # Sengaja rentan Command Injection
-    os.system("ping -c 1 " + domain)
+    print(f"Memeriksa host: {domain}")
+    return domain
 
-cek_host("google.com")
+
+if __name__ == "__main__":
+    cek_host("google.com")
+
