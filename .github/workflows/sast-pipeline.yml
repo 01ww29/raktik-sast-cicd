@@ -1,0 +1,19 @@
+name: Simple CI + SAST Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sast-scan:
+    name: Semgrep SAST Scan
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Run Semgrep SAST
+        run: semgrep scan --config auto --error
